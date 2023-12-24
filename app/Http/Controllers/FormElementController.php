@@ -68,7 +68,6 @@ class FormElementController extends Controller
 
     public function store_form_data(Request $request) 
     {
-        DB::connection()->enableQueryLog();
          // Basic Validation
         $validator = Validator::make($request->all(), [
             'data.*.type' => 'required|string',
@@ -85,14 +84,12 @@ class FormElementController extends Controller
         }
 
         
-        // Truncate tables
+        // Truncate tables first
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Field::truncate();
         Setting::truncate();
         Option::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-       
-
 
         foreach ($request->all() as $element) {
             // Store Field Data
