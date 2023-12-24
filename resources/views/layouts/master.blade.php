@@ -19,7 +19,7 @@
         <script type="text/javascript">
             var storeFormUrl = "{{ url('/store_form') }}";
         </script>
-        <script src="{{ asset('public/js/app1.js') }}"></script>
+        <script src="{{ asset('public/js/app.js') }}"></script>
 
     </body>
 
